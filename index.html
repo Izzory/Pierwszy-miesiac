@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stars Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .stars-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            display: none; /* Hide stars by default */
+        }
+        .star {
+            position: absolute;
+            font-size: 20px;
+            color: #fff;
+            animation: twinkling infinite;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+        }
+        @keyframes twinkling {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        .content {
+            padding: 20px; /* Add padding to the content */
+            text-align: center;
+            opacity: 0; /* Initially hidden */
+            animation: fadeIn 2s forwards; /* Fade in animation */
+        }
+        .content h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .content p {
+            font-size: 20px;
+            line-height: 1.6;
+            margin-bottom: 30px; /* Add some space between paragraphs */
+            opacity: 0; /* Initially hidden */
+            animation: typeIn 1s forwards; /* Type in animation */
+        }
+        .content p:nth-child(odd) {
+            color: #0f479f; /* Alternating color for odd lines */
+        }
+        .content p:nth-child(even) {
+            color: #ed2788; /* Alternating color for even lines */
+        }
+        .content img {
+            max-width: 20%;
+            height: auto;
+            margin-top: 20px;
+            opacity: 0; /* Initially hidden */
+            animation: fadeInImg 2s forwards; /* Fade in animation for image */
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeInImg {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes typeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        #background-music {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="stars-container">
+        <!-- Generate stars -->
+        <script>
+            // Function to generate random number
+            function getRandom(min, max) {
+                return Math.random() * (max - min) + min;
+            }
+            
+            // Number of stars to generate
+            var numberOfStars = 100;
+            
+            // Generate stars
+            for (var i = 0; i < numberOfStars; i++) {
+                var xPos = getRandom(0, 100);
+                var yPos = getRandom(0, 100);
+                var size = getRandom(15, 25);
+                var delay = getRandom(0, 10);
+                var symbols = ['✦', '✧', '*', '.', '°']; // Symbols
+                var symbol = symbols[Math.floor(Math.random() * symbols.length)]; // Random symbol
+                
+                document.write('<div class="star" style="top: ' + yPos + '%; left: ' + xPos + '%; font-size: ' + size + 'px; animation-delay: ' + delay + 's;">' + symbol + '</div>');
+            }
+        </script>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <h1>Hej moja piękna i cudowna żono ( kliknij lewy górny )</h1>
+        <p>Jestem bardzo szczęśliwy że trafiliśmy na siebię i jesteśmy juz ze sobą ponad miesiąc</p>
+        <p>Nadal pamiętam nasze pierwsze spotkanie oraz nasz pierwszy spacer i pocałunek gdzie obaj byliśmy zestresowani</p>
+        <p>Trafiliśmy na siebie w dosyc losowy sposob, pomimo tego obaj mieliśmy i mamy  traumy, problemy, niepewnosi.</p>
+        <p>Wiem ze ty tak jak i ja za duzo myslisz i siedzisz we własnej glowie ale pamietaj ze zawsze bede tu dla ciebie, bo jestem caly twoj</p>
+        <p>Nawet jesli znamy sie tylko miesiac, bardzo duzo juz razem osiagnelismy</p>
+        <p>Pokazalas mi czułosc i milosc ktorej nigdy dotad nie doznałem</p>
+        <p>Kocham całą ciebie, twoj charakter, piekne oczy, urode, to ze ci na mnie zalezy, twoja wytrwalosc, humor, lojalnosc, zaintersowania, pasje, i nasza kompatybilnosc</p>
+        <p>Bardzo chciałbym, abyś była w stanie spojrzeć na siebię moimi oczami</p>
+        <p>Modliłem się o tak uroczą kobietę jak ty, jestes wszystkim co kiedykolwiek chciałem mieć.</p>
+        <p>Przez to jak dorastałem, tylko dzięki tobie tak naprawdę poczułem się kochany</p>
+        <p>Uwielbiam robic ci te głupiutkie niespodzianki i prezenty, nawet ta strone</p>
+        <p>Odkąd się znamy czuję się tylko lepiej, tylko ty potrafisz namalować na mojej twarzy mój prawdziwy uśmiech, nawet gdy ja sam go nie lubię</p>
+        <p>Nie myśl że nie zasługujesz na mnie. Jestem cały twój i tylko twój. Poradzimy sobię z naszymi problemami we dwoje. Dzięki temu stworzymy niezniszczalny związek.</p>
+        <p>Wesprę cie w każdy sposób na jaki będę mógł</p>
+        <p>Rozwieje twoje złe myśli kiedy będzie trzeba</p>
+        <p>Z dnia na dzień kocham cię coraz mocniej</p>
+        <p>Każdego dnia jestes moją pierwszą i ostatnią myślą</p>
+        <p>Gdy patrzę na gwiazdy myślę o tobię</p>
+        <p>Jesteś jedynym kształtem wypełniającym pustkę w moim sercu</p>
+        <p>Nigdy nie sądziłem że spotkam kogoś takiego jak ty.</p>
+        <p>Kocham słuchać jak mówisz mi o losowych sprawach i swoich pasjach</p>
+        <p>Kocham patrzeć w twoje piękne oczy</p>
+        <p>Kocham gdy piszesz do mnie rano i wieczorem</p>
+        <p>Kocham odprowadzać cię do szkoły i na autobus</p>
+        <p>Kocham gdy sama z siebie dajesz mi całusy</p>
+        <p>Kocham pisać z tobą</p>
+        <p>Kocham rozmawiać z tobą o głupotach</p>
+        <p>Kocham spędzać z tobą czas, nawet gdy nic nie robimy</p>
+        <p>Kocham gdy chodzimy za ręce, całujemy się, przytulamy się</p>
+        <p>Mógłbym mowić o tym wszystkim godzinami tylko dla ciebie, bo tylko ty się dla mnie liczysz</p>
+        <p>Mam nadzieję że nie będzię końca ku naszej miłości</p>
+        <p>Kocham cię Wiktoria. </p>
+        <p>Twój ukochany ~ Jakub.</p>
+        <img src="wikus1.jpg" alt="Starry Night">
+        <img src="wikus2.jpg" alt="Another Starry Night">
+        <img src="wikus3.jpg" alt="Another Starry Night">
+        <img src="wikus4.jpg" alt="Another Starry Night">
+        <img src="wikus5.jpg" alt="Another Starry Night">
+        <img src="wikus6.jpg" alt="Another Starry Night">
+    </div>
+
+    <!-- Background Music -->
+    <audio id="background-music" autoplay loop controls>
+        <source src="Lovesong.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Stars Script -->
+    <script>
+        // Show stars and content when the audio starts playing
+        document.getElementById('background-music').addEventListener('play', function() {
+            var stars = document.querySelector('.stars-container');
+            var content = document.querySelector('.content');
+            var paragraphs = document.querySelectorAll('.content p');
+            var images = document.querySelectorAll('.content img');
+
+            stars.style.display = 'block';
+            content.style.opacity = '1';
+
+            // Delayed animations for each paragraph
+            paragraphs.forEach(function(paragraph, index) {
+                paragraph.style.animationDelay = (index + 1) * 0.5 + 's';
+                paragraph.style.opacity = '1';
+            });
+
+            // Fade in images
+            images.forEach(function(image) {
+                image.style.opacity = '1';
+            });
+        });
+    </script>
+</body>
+</html>

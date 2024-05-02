@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="stars.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stars Website</title>
+    <title>grejpfrut</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,21 +14,22 @@
             padding: 0;
         }
         .stars-container {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             pointer-events: none;
+            z-index: -1; /* Move stars behind other content */
+            overflow: hidden; /* Hide stars that go beyond the viewport */
             display: none; /* Hide stars by default */
         }
         .star {
             position: absolute;
-            font-size: 20px;
-            color: #fff;
+            font-size: 40px; /* Increased font size */
             animation: twinkling infinite;
-            animation-duration: 2s;
-            animation-timing-function: linear;
+            animation-duration: 1s; /* Shorter duration */
+            opacity: 0; /* Initially hidden */
         }
         @keyframes twinkling {
             0% { opacity: 0; }
@@ -91,20 +93,31 @@
             function getRandom(min, max) {
                 return Math.random() * (max - min) + min;
             }
-            
+
             // Number of stars to generate
-            var numberOfStars = 100;
-            
+            var numberOfStars = 5000; // Increased number of stars
+
             // Generate stars
             for (var i = 0; i < numberOfStars; i++) {
                 var xPos = getRandom(0, 100);
                 var yPos = getRandom(0, 100);
-                var size = getRandom(15, 25);
+                var size = getRandom(2, 5); // Adjusted size range
                 var delay = getRandom(0, 10);
-                var symbols = ['✦', '✧', '*', '.', '°']; // Symbols
+                var symbols = ['✦', '✧', '*', '.', '°']; // ASCII symbols
                 var symbol = symbols[Math.floor(Math.random() * symbols.length)]; // Random symbol
-                
-                document.write('<div class="star" style="top: ' + yPos + '%; left: ' + xPos + '%; font-size: ' + size + 'px; animation-delay: ' + delay + 's;">' + symbol + '</div>');
+                var color = getRandomColor(); // Random color
+
+                document.write('<div class="star" style="top: ' + yPos + '%; left: ' + xPos + '%; font-size: ' + size + 'px; animation-delay: ' + delay + 's; color: ' + color + ';">' + symbol + '</div>');
+            }
+
+            // Function to generate random color
+            function getRandomColor() {
+                var letters = '0123456789ABCDEF';
+                var color = '#';
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
             }
         </script>
     </div>
@@ -154,34 +167,34 @@
     </div>
 
     <!-- Background Music -->
-    <audio id="background-music" autoplay loop controls>
-        <source src="Lovesong.mp3" type="audio/mpeg">
+    <audio id="background-music" loop controls>
+        <source src="Touch.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
     <!-- Stars Script -->
     <script>
-        // Show stars and content when the audio starts playing
-        document.getElementById('background-music').addEventListener('play', function() {
-            var stars = document.querySelector('.stars-container');
-            var content = document.querySelector('.content');
-            var paragraphs = document.querySelectorAll('.content p');
-            var images = document.querySelectorAll('.content img');
+        var audio = document.getElementById('background-music');
+        var starsContainer = document.querySelector('.stars-container');
 
-            stars.style.display = 'block';
-            content.style.opacity = '1';
-
-            // Delayed animations for each paragraph
-            paragraphs.forEach(function(paragraph, index) {
-                paragraph.style.animationDelay = (index + 1) * 0.5 + 's';
-                paragraph.style.opacity = '1';
+        // Show stars when the audio starts playing
+        audio.addEventListener('play', function() {
+            var stars = document.querySelectorAll('.star');
+            starsContainer.style.display = 'block';
+            stars.forEach(function(star) {
+                star.style.opacity = '1'; // Fade in stars
             });
+        });
 
-            // Fade in images
-            images.forEach(function(image) {
-                image.style.opacity = '1';
-            });
+        // Extend stars as the page is scrolled
+        window.addEventListener('scroll', function() {
+            var scrollPercent = (document.documentElement.scrollTop + window.innerHeight) / document.documentElement.scrollHeight;
+            var maxHeight = Math.max(document.documentElement.scrollHeight, window.innerHeight); // Get the maximum of document height and viewport height
+            starsContainer.style.height = maxHeight + 'px'; // Set stars container height
         });
     </script>
 </body>
 </html>
+
+
+
